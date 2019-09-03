@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent" android:layout_height="match_parent"
+             tools:context=".fragment.RecyclerViewFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/deposit_detail_CsnLyt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+        >
+
+            <TextView
+                    android:id="@+id/deposit_text_time"
+                    android:layout_width="125dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="1dp"
+                    android:gravity="center"
+                    android:text="时间"
+                    android:textColor="#3a63aa"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/deposit_text_money"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                    android:id="@+id/deposit_text_money"
+                    android:layout_width="125dp"
+                    android:layout_height="50dp"
+                    android:text="金额"
+                    android:gravity="center"
+                    android:textColor="#3a63aa"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/deposit_text_time"
+                    app:layout_constraintEnd_toStartOf="@+id/deposit_text_detail"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginEnd="1dp"/>
+            <TextView
+                    android:id="@+id/deposit_text_detail"
+                    android:layout_width="125dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="1dp"
+                    android:gravity="center"
+                    android:text="详情"
+                    android:textColor="#3a63aa"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/deposit_text_money"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+        <TextView
+                android:id="@+id/deposit_nodata_txv"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="暂无明细"
+                android:textSize="18sp"
+                android:visibility="gone"/>
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+        >
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

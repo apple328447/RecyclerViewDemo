@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_marqueen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:text="內容長度一定要超過控制元件的長度,內容長度一定要超過控制元件的長度,內容長度一定要超過控制元件的長度"
+        android:clipChildren="true"
+        android:singleLine="true"
+        />
+</android.support.constraint.ConstraintLayout>

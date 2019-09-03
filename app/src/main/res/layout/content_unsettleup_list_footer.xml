@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    android:id="@+id/tv_footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:textSize="14sp"
+    android:textColor="#CCCCCC"
+    android:text="沒數據"
+    android:gravity="center"
+    skin:enable="true"></TextView>

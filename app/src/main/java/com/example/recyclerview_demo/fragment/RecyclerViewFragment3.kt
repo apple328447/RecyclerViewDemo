@@ -94,7 +94,7 @@ class RecyclerViewFragment3 : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        recyclerView.startAuto()
+        recyclerView.stopAuto()
     }
 
 }

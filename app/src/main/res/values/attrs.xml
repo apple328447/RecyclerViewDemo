@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AutoScrollRecyclerView">
+        <attr name="delay" format="string" />
+        <attr name="period" format="string" />
+    </declare-styleable>
+</resources>

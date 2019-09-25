@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
-        //goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
+//        goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
         goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
 
 

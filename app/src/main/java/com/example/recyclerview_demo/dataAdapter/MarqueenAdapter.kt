@@ -72,4 +72,6 @@ class MarqueenAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     }
 
 
+
+
 }

@@ -14,11 +14,17 @@ import com.example.recyclerview_demo.listener.OnLoadingListener
 //https://xnfood.com.tw/android-recyclerview2/
 
 
-
 /**
  * 步驟二 繼承
  */
 class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    /**
+     * 配合getItemViewType()+onCreateViewHolder()去判斷要使用哪個畫面
+     *
+     * enum應該是把參數都賦予一個Int值讓這些值變成唯一的概念，之後要取用看文字會比數字直覺
+     * */
+    private enum class Type { ViewHolder, FooterViewHolder }
+
 
     /**
      * 步驟三 建立Json格式的class
@@ -38,14 +44,13 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
 
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         /**
          * 這個是RecyclerView的內容物
          * i是用來判斷要用哪個畫面的
          */
-        return if (viewType == 1) {//viewType的值會從
+        return if (viewType == Type.ViewHolder.ordinal) {//viewType的值會從
             val v = LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.content_detail, viewGroup, false)
             ViewHolder(v)
@@ -104,8 +109,8 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
      */
     override fun getItemViewType(position: Int): Int {
         return when (position) {
-            mdata.lastIndex + 1 -> 0
-            else -> 1
+            mdata.lastIndex + 1 -> Type.FooterViewHolder.ordinal
+            else -> Type.ViewHolder.ordinal
         }
     }
 
@@ -115,16 +120,18 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
      * */
     fun setData(mdataList: MutableList<DataOutput.DepositDetail>) {
         //這個是一次更換全部資料
-        mdata=mdataList
+        mdata = mdataList
         notifyDataSetChanged()//更新資料
     }
+
     fun upData(mdataList: MutableList<DataOutput.DepositDetail>) {
         //這個是添加更多資料
-        for(i in 0 until mdataList.size){
+        for (i in 0 until mdataList.size) {
             mdata.add(mdataList[i])
         }
         notifyDataSetChanged()//更新資料
     }
+
     /**
      * 設置監聽
      * 步驟三:這裡是要把Fragment的值塞進來，觸發Fragment給我們的事件
@@ -144,12 +151,10 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         internal var money: TextView = itemView.findViewById(R.id.deposit_detail_money)
         internal var detail: TextView = itemView.findViewById(R.id.deposit_detail_detail)
         internal var line: View = itemView.findViewById(R.id.deposit_detail_detail_line)
-
     }
 
     inner class FooterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvFooter: TextView = itemView.findViewById(R.id.tv_footer)
-
     }
 
 

@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
+        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
 //        goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
-        goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
+//        goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
 
 
         //隱藏StatusBar

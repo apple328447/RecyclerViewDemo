@@ -6,6 +6,7 @@ import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,21 +33,27 @@ import java.util.*
 class RecyclerViewFragment : Fragment() {
 
 
-    private lateinit var mDataArrayList:MutableList<DataOutput.DepositDetail>
+    private lateinit var mDataArrayList: MutableList<DataOutput.DepositDetail>
 
-//    private  var mdataDetailAdapter: dataAdapter?=null//改成下面 有"()才代表有new過"
-    private var mdataDetailAdapter= dataAdapter(activity)
+    //    private  var mdataDetailAdapter: dataAdapter?=null//改成下面 有"()才代表有new過"
+    private var mdataDetailAdapter = dataAdapter(activity)
 
     //兩種風格
-    private var mGridLayoutManager = GridLayoutManager(activity, 1, LinearLayoutManager.VERTICAL, false)//GridLayout
-    private var linearLayoutManager=LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL, false)//LinearLayout
+    private var mGridLayoutManager =
+        GridLayoutManager(activity, 1, LinearLayoutManager.VERTICAL, false)//GridLayout
+    private var linearLayoutManager =
+        LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)//LinearLayout
 
     private var loading = false //是不是正在加載資料
     private var mNoMoreData = false//True無法再加載
-    private var uploadTimes=1
+    private var uploadTimes = 1
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recycler_view, container, false)
 
@@ -60,22 +67,28 @@ class RecyclerViewFragment : Fragment() {
         initRecyclerViewUpdate()
 
     }
-    private fun initEvent(){
+
+    private fun initEvent() {
         //上拉更新
         swipeRefreshLayout.setOnRefreshListener {
             addDataToRecyclerView()
-            Handler().postDelayed({//模拟耗时操作
+            Handler().postDelayed({
+                //模拟耗时操作
                 run {
                     swipeRefreshLayout.isRefreshing = false//取消刷新
                 }
-            },500)
+            }, 500)
         }
     }
 
     //初始資料
     private fun initRecyclerView() {
-        var data="[{\"amount\":\"1\",\"createTime\":\"2019-06-17 17:52:59\",\"detail\":52},{\"amount\":\"2\",\"createTime\":\"2019-06-17 17:52:43\",\"detail\":51},{\"amount\":\"3\",\"createTime\":\"2019-06-17 15:59:23\",\"detail\":51},{\"amount\":\"4\",\"createTime\":\"2019-06-17 15:59:17\",\"detail\":52},{\"amount\":\"5\",\"createTime\":\"2019-06-17 15:58:54\",\"detail\":51},{\"amount\":\"6\",\"createTime\":\"2019-06-17 15:58:30\",\"detail\":52},{\"amount\":\"7\",\"createTime\":\"2019-06-17 15:53:34\",\"detail\":51},{\"amount\":\"8\",\"createTime\":\"2019-06-17 15:53:31\",\"detail\":52},{\"amount\":\"9\",\"createTime\":\"2019-06-17 15:53:28\",\"detail\":51},{\"amount\":\"10\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52},{\"amount\":\"11\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52}]"
-        mDataArrayList= Gson().fromJson(data, object : TypeToken<java.util.ArrayList<DataOutput.DepositDetail>>() {}.type)
+        var data =
+            "[{\"amount\":\"1\",\"createTime\":\"2019-06-17 17:52:59\",\"detail\":52},{\"amount\":\"2\",\"createTime\":\"2019-06-17 17:52:43\",\"detail\":51},{\"amount\":\"3\",\"createTime\":\"2019-06-17 15:59:23\",\"detail\":51},{\"amount\":\"4\",\"createTime\":\"2019-06-17 15:59:17\",\"detail\":52},{\"amount\":\"5\",\"createTime\":\"2019-06-17 15:58:54\",\"detail\":51},{\"amount\":\"6\",\"createTime\":\"2019-06-17 15:58:30\",\"detail\":52},{\"amount\":\"7\",\"createTime\":\"2019-06-17 15:53:34\",\"detail\":51},{\"amount\":\"8\",\"createTime\":\"2019-06-17 15:53:31\",\"detail\":52},{\"amount\":\"9\",\"createTime\":\"2019-06-17 15:53:28\",\"detail\":51},{\"amount\":\"10\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52},{\"amount\":\"11\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52}]"
+        mDataArrayList = Gson().fromJson(
+            data,
+            object : TypeToken<java.util.ArrayList<DataOutput.DepositDetail>>() {}.type
+        )
 
 //        mDataArrayList= Gson().fromJson(data, DataOutput.DepositDetail::class.java)//這個方式是用來包非陣列的型態
 
@@ -85,31 +98,40 @@ class RecyclerViewFragment : Fragment() {
          * 步驟四:這裡是要把Fragment的值塞進來
          * ＊＊＊call back＊＊＊
          * */
-        mdataDetailAdapter.setOnSelectItemListener(object : OnLoadingListener{
+        mdataDetailAdapter.setOnSelectItemListener(object : OnLoadingListener {
             override fun onLoading() {
                 //這裡放你想要觸發的效果
-                Toast.makeText(activity,"觸發事件",Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "觸發事件", Toast.LENGTH_SHORT).show()
             }
         })
         recyclerView.adapter = mdataDetailAdapter//設定recyclerView的Aapter
         recyclerView.layoutManager = LinearLayoutManager(activity)//設定layoutManager 總共有三種
     }
+
     //新增資料
-    fun addDataToRecyclerView(){
-        if(uploadTimes<3){
-            loading=true
+    fun addDataToRecyclerView() {
+        if (uploadTimes < 3) {
+            loading = true
 //            mdataDetailAdapter?.mdata?.addAll(mDataArrayList)
 //            mdataDetailAdapter?.notifyDataSetChanged()
             mdataDetailAdapter?.upData(mDataArrayList)//呼叫Adapter裡面的方法 把資料塞進去
             uploadTimes++
-        }else{
-            mNoMoreData=true//沒有更多資料可以加載
+        } else {
+            mNoMoreData = true//沒有更多資料可以加載
         }
     }
+
     //資料滑動的時候事件監聽
     private fun initRecyclerViewUpdate() {
         recyclerView.layoutManager = mGridLayoutManager
         recyclerView.adapter = mdataDetailAdapter
+
+        /**
+         * 這裡有兩種上拉加載的方式
+         * 方法一：用起來比較順
+         * 方法二：寫起來比較簡單
+         * */
+        //方法一：寫一個自定義的OnScrollListener
         recyclerView.addOnScrollListener(object : OnScrollListener(mGridLayoutManager) {
 
             override fun loadMoreDate(firstVisibleItem: Int) {
@@ -117,16 +139,35 @@ class RecyclerViewFragment : Fragment() {
                 if (!loading) {
                     addDataToRecyclerView()
                     recyclerView.scrollToPosition(firstVisibleItem)
-                    loading=false
+                    loading = false
                 }
             }
 
             override fun onNoMore() {
                 if (mNoMoreData) {
-                    Toast.makeText(activity,"沒有更多資料可以加載",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "沒有更多資料可以加載", Toast.LENGTH_SHORT).show()
                 }
             }
         })
+
+        //方法二：直接用原生的
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//            }
+//
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                // RecyclerView.canScrollVertically(1) 的值表示是否能向上滚动，false表示已经滚动到底部
+//                // RecyclerView.canScrollVertically(-1) 的值表示是否能向下滚动，false表示已经滚动到顶部
+//                if (!loading) {//前面的資料撈完才能撈下一筆
+//                    if (!mNoMoreData && !recyclerView.canScrollVertically(1)) {//如果還有資料可以加載&&往下拉到底部
+//                        addDataToRecyclerView()
+//                        loading = false
+//                    }
+//                }
+//
+//            }
+//        })
     }
 }
 //TODO Bill 教學 待整理 日期的加減

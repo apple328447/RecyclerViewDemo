@@ -66,7 +66,6 @@ class RecyclerViewFragment3 : Fragment() {
             customLinearLayoutManager.setScrollEnabled(true)
             recyclerView.layoutManager =customLinearLayoutManager
         }
-
     }
 
     //公告跑馬燈訊息彈窗 //selectPage: 初始顯示頁面

@@ -1,5 +1,6 @@
 package com.example.recyclerview_demo.dataAdapter
 
+import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,8 +17,9 @@ import com.example.recyclerview_demo.listener.OnLoadingListener
 
 /**
  * 步驟二 繼承
+ * ＊＊＊可以加一個mContext參數，這樣如果要用到Toast之類的會更方便＊＊＊
  */
-class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class dataAdapter(private val mContext: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     /**
      * 配合getItemViewType()+onCreateViewHolder()去判斷要使用哪個畫面
      *
@@ -35,7 +37,7 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     /**
      * 設置監聽
      * 步驟二:建立 參數
-     *
+     * ＊＊＊宣吿＊＊＊
      * */
     private var mOnLoadingListener: OnLoadingListener = object : OnLoadingListener {
         override fun onLoading() {
@@ -78,7 +80,7 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     /**
                      * 設置監聽
                      * 步驟五:把mOnLoadingListener的事件設定給要觸發的元件，這裡用time當例子
-                     *
+                     * ＊＊＊給參數＊＊＊
                      * */
                     viewHolder.time.setOnClickListener { mOnLoadingListener.onLoading() }
 
@@ -135,7 +137,7 @@ class dataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     /**
      * 設置監聽
      * 步驟三:這裡是要把Fragment的值塞進來，觸發Fragment給我們的事件
-     *
+     * ＊＊＊綁定＊＊＊
      * */
     fun setOnSelectItemListener(onLoadingListener: OnLoadingListener) {
         mOnLoadingListener = onLoadingListener

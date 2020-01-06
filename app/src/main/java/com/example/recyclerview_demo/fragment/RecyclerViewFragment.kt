@@ -16,9 +16,11 @@ import com.example.recyclerview_demo.dataAdapter.dataAdapter
 import com.example.recyclerview_demo.json.DataOutput
 import com.example.recyclerview_demo.listener.OnLoadingListener
 import com.example.recyclerview_demo.listener.OnScrollListener
+import com.example.recyclerview_demo.utils.TimeUtil
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_recycler_view.*
+import java.util.*
 
 /**Bill
  * Demo RecyclerView的基本用法以及
@@ -33,7 +35,7 @@ class RecyclerViewFragment : Fragment() {
     private lateinit var mDataArrayList:MutableList<DataOutput.DepositDetail>
 
 //    private  var mdataDetailAdapter: dataAdapter?=null//改成下面 有"()才代表有new過"
-    private var mdataDetailAdapter= dataAdapter()
+    private var mdataDetailAdapter= dataAdapter(activity)
 
     //兩種風格
     private var mGridLayoutManager = GridLayoutManager(activity, 1, LinearLayoutManager.VERTICAL, false)//GridLayout
@@ -56,6 +58,7 @@ class RecyclerViewFragment : Fragment() {
         initEvent()
         initRecyclerView()
         initRecyclerViewUpdate()
+
     }
     private fun initEvent(){
         //上拉更新
@@ -73,11 +76,14 @@ class RecyclerViewFragment : Fragment() {
     private fun initRecyclerView() {
         var data="[{\"amount\":\"1\",\"createTime\":\"2019-06-17 17:52:59\",\"detail\":52},{\"amount\":\"2\",\"createTime\":\"2019-06-17 17:52:43\",\"detail\":51},{\"amount\":\"3\",\"createTime\":\"2019-06-17 15:59:23\",\"detail\":51},{\"amount\":\"4\",\"createTime\":\"2019-06-17 15:59:17\",\"detail\":52},{\"amount\":\"5\",\"createTime\":\"2019-06-17 15:58:54\",\"detail\":51},{\"amount\":\"6\",\"createTime\":\"2019-06-17 15:58:30\",\"detail\":52},{\"amount\":\"7\",\"createTime\":\"2019-06-17 15:53:34\",\"detail\":51},{\"amount\":\"8\",\"createTime\":\"2019-06-17 15:53:31\",\"detail\":52},{\"amount\":\"9\",\"createTime\":\"2019-06-17 15:53:28\",\"detail\":51},{\"amount\":\"10\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52},{\"amount\":\"11\",\"createTime\":\"2019-06-17 15:53:13\",\"detail\":52}]"
         mDataArrayList= Gson().fromJson(data, object : TypeToken<java.util.ArrayList<DataOutput.DepositDetail>>() {}.type)
+
+//        mDataArrayList= Gson().fromJson(data, DataOutput.DepositDetail::class.java)//這個方式是用來包非陣列的型態
+
         mdataDetailAdapter.setData(mDataArrayList)//呼叫Adapter裡面的方法 把資料塞進去
         /**
          * 設置監聽
          * 步驟四:這裡是要把Fragment的值塞進來
-         *
+         * ＊＊＊call back＊＊＊
          * */
         mdataDetailAdapter.setOnSelectItemListener(object : OnLoadingListener{
             override fun onLoading() {
@@ -123,3 +129,7 @@ class RecyclerViewFragment : Fragment() {
         })
     }
 }
+//TODO Bill 教學 待整理 日期的加減
+//var ccc= Calendar.getInstance().add(Calendar.DATE,-1) //這個不知道加剪完後要怎麼處理
+//var ccca= TimeUtil.timeFormat(System.currentTimeMillis() - 60 * 60 * 24 * 1000, "yyyy-MM-dd")//當前時間剪一天(用毫秒去算)
+//var cccaaa=Calendar.getInstance().timeInMillis 這兩個都是取當前時間 System.currentTimeMillis()

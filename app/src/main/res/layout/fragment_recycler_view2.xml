@@ -11,11 +11,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible">
-
+        //TODO Bill 這些屬性可以看一下
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
+
+                android:clickable="true"
+                android:clipToPadding="false"
+                android:focusable="true"
+                android:paddingStart="10dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="10dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
         />
     </android.support.v4.widget.SwipeRefreshLayout>
 

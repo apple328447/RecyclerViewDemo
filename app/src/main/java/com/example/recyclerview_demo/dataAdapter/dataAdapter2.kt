@@ -89,7 +89,9 @@ class dataAdapter2 : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         for (i in 0 until mdataList.size) {
             mDataList.add(mdataList[i])
         }
-        notifyDataSetChanged()//更新資料
+        val index = if (mDataList.lastIndex - 1 < 0) 0 else mDataList.lastIndex
+        notifyItemInserted(index)//更新資料
+        //notifyDataSetChanged()//全部更新資料
     }
 
     /**

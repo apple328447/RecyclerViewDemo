@@ -131,7 +131,9 @@ class dataAdapter(private val mContext: Context?) : RecyclerView.Adapter<Recycle
         for (i in 0 until mdataList.size) {
             mdata.add(mdataList[i])
         }
-        notifyDataSetChanged()//更新資料
+        val index = if (mdata.lastIndex - 1 < 0) 0 else mdata.lastIndex
+        notifyItemInserted(index)//更新資料
+//        notifyDataSetChanged()//更新資料
     }
 
     /**

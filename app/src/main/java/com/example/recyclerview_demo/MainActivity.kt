@@ -12,6 +12,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.example.recyclerview_demo.fragment.RecyclerView2Fragment
 import com.example.recyclerview_demo.fragment.RecyclerViewFragment3
+import com.example.recyclerview_demo.fragment.ViewPagerFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
+        goToFragment(ViewPagerFragment(),"RecyclerViewFragment")
 //        goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
 //        goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
 

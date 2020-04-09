@@ -4,6 +4,7 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
 import android.view.View
 import com.example.recyclerview_demo.fragment.RecyclerViewFragment
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        goToFragment(ViewPagerFragment(),"RecyclerViewFragment")
+//        goToFragment(ViewPagerFragment(),"RecyclerViewFragment")
+        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
 //        goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
 //        goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
 
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         val ft = supportFragmentManager.beginTransaction()
 
+        ft.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK)//這是轉場動畫
 
         if (mCurrentFragment == null) { //首次添加 fragment
             ft.add(R.id.Deposit_Fragment_FrameLayout, changeToFragment, tag)

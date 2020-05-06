@@ -7,13 +7,10 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
 import android.view.View
-import com.example.recyclerview_demo.fragment.RecyclerViewFragment
 import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
 import android.view.Window
 import android.view.WindowManager
-import com.example.recyclerview_demo.fragment.RecyclerView2Fragment
-import com.example.recyclerview_demo.fragment.RecyclerViewFragment3
-import com.example.recyclerview_demo.fragment.ViewPagerFragment
+import com.example.recyclerview_demo.fragment.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +22,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        goToFragment(ViewPagerFragment(),"RecyclerViewFragment")
-        goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
+       // goToFragment(RecyclerViewFragment(),"RecyclerViewFragment")
 //        goToFragment(RecyclerView2Fragment(),"RecyclerView2Fragment")
 //        goToFragment(RecyclerViewFragment3(),"RecyclerView3Fragment")
+        goToFragment(RecyclerViewAddRecyclerViewFragment(),"RecyclerViewAddRecyclerViewFragment")
 
 
         //隱藏StatusBar

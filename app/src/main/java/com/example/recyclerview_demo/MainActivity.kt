@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat
-import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
 import android.view.Window
 import android.view.WindowManager
-import com.example.recyclerview_demo.fragment.*
+import com.example.recyclerview_demo.RecyclerViewAddRecyclerView.RecyclerViewAddRecyclerViewFragment
 
 
 class MainActivity : AppCompatActivity() {

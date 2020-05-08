@@ -29,20 +29,41 @@ import java.util.TimerTask;
  * 設定跑馬燈速度 app:period=" "
  * 設定延遲      app:delay=" "
  **/
+
+
+
+ /**
+  * 构造函数参数最多有四个。简单总结下：
+  *
+  * Context - View中随处都会用到。
+  *
+  * AttributeSet - XML属性（当从XML inflate的时候）。
+  *
+  * int defStyleAttr - 应用到View的默认风格（定义在主题中）。
+  *
+  * int defStyleResource - 如果没有使用defStyleAttr，应用到View的默认风格
+  *
+  * 除了Context，其它的参数只是用来通过XML属性配置View的初始状态（从布局，style以及theme中）。
+  * */
 public class AutoScrollRecyclerView extends RecyclerView {
 
      int delay = 0;
      int period = 250;
 
+     // 如果View是在Java代码里面new的，则调用第一个构造函数
     public AutoScrollRecyclerView(Context context) {
         this(context,null);
     }
-
+     // 如果View是在.xml里声明的，则调用第二个构造函数
+     // 自定义属性是从AttributeSet参数传进来的
     public AutoScrollRecyclerView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
         initData(attrs);
     }
 
+     // 不会自动调用
+     // 一般是在第二个构造函数里主动调用
+     // 如View有style属性时
     public AutoScrollRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initData(attrs);

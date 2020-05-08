@@ -3,13 +3,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.RecyclerViewAddRecyclerViewFragment">
+        tools:context=".RecyclerViewAddRecyclerView.RecyclerViewAddRecyclerViewFragment">
 
     <LinearLayout
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_radius_frame_blue"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
         <LinearLayout
@@ -42,52 +43,83 @@
         <LinearLayout
                 android:id="@+id/content_body"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                    android:id="@+id/txv_A"
-                    android:layout_width="0dp"
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/frame_6dp_white_select_effect_left"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:text="A"
-                    android:textColor="@drawable/textcolor_effect_blue"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal">
+                <TextView
+                        android:id="@+id/txv_A"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="5碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
 
-            <TextView
-                    android:id="@+id/txv_B"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/frame_6dp_white_select_effect_left"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:text="B"
-                    android:textColor="@drawable/textcolor_effect_blue"
-                    android:textSize="16sp" />
+                <TextView
+                        android:id="@+id/txv_B"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="6碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
 
-            <TextView
-                    android:id="@+id/txv_C"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/frame_6dp_white_select_effect_left"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:text="C"
-                    android:textColor="@drawable/textcolor_effect_blue"
-                    android:textSize="16sp" />
+                <TextView
+                        android:id="@+id/txv_C"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="7碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/txv_D"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="8碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    tools:itemCount="5"
+                    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/content_first_layer"
+                    tools:orientation="vertical" />
 
         </LinearLayout>
+
+
 
     </LinearLayout>
 

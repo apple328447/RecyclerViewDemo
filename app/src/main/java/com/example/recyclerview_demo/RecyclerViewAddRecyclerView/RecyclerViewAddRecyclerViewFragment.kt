@@ -1,7 +1,12 @@
 package com.example.recyclerview_demo.RecyclerViewAddRecyclerView
 
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_recycler_view_add_recycler_view.*
 class RecyclerViewAddRecyclerViewFragment : Fragment() {
 
     private var dataAdapterFirst = dataAdapterFirst(activity)
-    var rvDataList:DataOutput=DataOutput()
+    var rvDataList: DataOutput = DataOutput()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,19 +39,20 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
 
 
         Log.v("Bill", "onViewCreated")
+
     }
 
-    private fun getTypeData(type:Int): MutableList<DataOutput.contentData> {
-        var typeData : MutableList<DataOutput.contentData>? = mutableListOf()
+    private fun getTypeData(type: Int): MutableList<DataOutput.contentData> {
+        var typeData: MutableList<DataOutput.contentData>? = mutableListOf()
         try {
-            if(rvDataList!=null){
-                var dataList= rvDataList.dataList?.firstOrNull {
-                    it.type==type
+            if (rvDataList != null) {
+                var dataList = rvDataList.dataList?.firstOrNull {
+                    it.type == type
                 } as DataOutput.contentTypeData
 
-                typeData=dataList?.content!!
+                typeData = dataList?.content!!
             }
-        }catch (e: Exception) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -54,8 +60,11 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        rvDataList=Gson().fromJson("{\"dataList\":[{\"id\":30575414,\"fk\":null,\"type\":\"5\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5]},{\"name\":\"B\",\"img\":[2,3,4,5,1]},{\"name\":\"C\",\"img\":[3,4,5,1,2]},{\"name\":\"D\",\"img\":[4,5,1,2,3]},{\"name\":\"E\",\"img\":[5,4,3,2,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"6\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6]},{\"name\":\"B\",\"img\":[2,3,4,5,6,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"7\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6,7]},{\"name\":\"B\",\"img\":[2,3,4,5,6,7,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"8\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6,7,8]},{\"name\":\"B\",\"img\":[2,3,4,5,6,7,8,1]}]}]}",DataOutput::class.java)
-        recyclerView.adapter=dataAdapterFirst
+        rvDataList = Gson().fromJson(
+            "{\"dataList\":[{\"id\":30575414,\"fk\":null,\"type\":\"5\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5]},{\"name\":\"B\",\"img\":[2,3,4,5,1]},{\"name\":\"C\",\"img\":[3,4,5,1,2]},{\"name\":\"D\",\"img\":[4,5,1,2,3]},{\"name\":\"E\",\"img\":[5,4,3,2,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"6\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6]},{\"name\":\"B\",\"img\":[2,3,4,5,6,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"7\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6,7]},{\"name\":\"B\",\"img\":[2,3,4,5,6,7,1]}]},{\"id\":30575414,\"fk\":null,\"type\":\"8\",\"content\":[{\"name\":\"A\",\"img\":[1,2,3,4,5,6,7,8]},{\"name\":\"B\",\"img\":[2,3,4,5,6,7,8,1]}]}]}",
+            DataOutput::class.java
+        )
+        recyclerView.adapter = dataAdapterFirst
         recyclerView.layoutManager = LinearLayoutManager(activity)
         txv_A.performClick()
     }
@@ -92,11 +101,10 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
             dataAdapterFirst.setData(getTypeData(8))
         }
         txv_zoom_bar.setOnClickListener {
-            if (content_body.visibility == View.VISIBLE){
+            if (content_body.visibility == View.VISIBLE) {
                 content_title.setBackgroundResource(R.drawable.bg_radius_all_blue)
                 content_body.visibility = View.GONE
-            }
-            else{
+            } else {
                 content_title.setBackgroundResource(R.drawable.bg_radius_top_blue)
                 content_body.visibility = View.VISIBLE
             }

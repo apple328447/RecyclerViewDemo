@@ -4,4 +4,9 @@
         <attr name="delay" format="string" />
         <attr name="period" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="BubbleSpeech">
+        <attr name="frameColor" format="string" />
+        <attr name="direction" format="string" />
+    </declare-styleable>
 </resources>

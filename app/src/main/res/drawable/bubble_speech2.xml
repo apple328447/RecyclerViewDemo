@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:width="@dimen/speech_bubble_corners"
+            android:height="@dimen/speech_bubble_corners"
+            android:gravity="top|right">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+                android:width="@dimen/speech_bubble_corners"
+                android:height="@dimen/speech_bubble_corners"
+                android:viewportWidth="10.0"
+                android:viewportHeight="10.0">
+            <path
+                    android:pathData="M10,10 A10,10 0 0,0 0,0 "
+
+                    android:strokeColor="@color/speech_bubble_agent"
+                    android:strokeWidth="0.1"
+                    />
+        </vector>
+    </item>
+
+</selector>
+
+<!--  教學    https://ithelp.ithome.com.tw/articles/10207614?sc=iThelpR-->

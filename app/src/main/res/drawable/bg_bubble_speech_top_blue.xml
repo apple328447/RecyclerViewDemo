@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:width="50dp" android:height="50dp" android:gravity="top|left">
+
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+                android:width="@dimen/speech_bubble_corners"
+                android:height="@dimen/speech_bubble_corners"
+                android:viewportWidth="150.0"
+                android:viewportHeight="150.0">
+            <path
+                    android:fillColor="#3A81E5"
+                    android:pathData="M0,0 C0 50,40 60, 50,60 M0,0 C13 15,45 40, 90,30 L50,60"
+                    android:strokeWidth="0.1"
+                    android:strokeColor="#3A81E5" />
+        </vector>
+
+    </item>
+
+    <item>
+
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+                android:shape="rectangle">
+            <corners
+                    android:topLeftRadius="25dp"
+                    android:topRightRadius="25dp" />
+            <solid android:color="#3A81E5" />
+            <stroke
+                    android:width="1dp"
+                    android:color="#3A81E5" />
+        </shape>
+
+    </item>
+
+</layer-list>
+
+        <!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--        android:shape="rectangle">-->
+        <!--    <corners-->
+        <!--            android:topLeftRadius="5dp"-->
+        <!--            android:topRightRadius="5dp" />-->
+        <!--    <solid android:color="#3A81E5" />-->
+        <!--    <stroke-->
+        <!--            android:width="1dp"-->
+        <!--            android:color="#3A81E5" />-->
+        <!--</shape>-->

@@ -7,19 +7,18 @@
         tools:context=".RecyclerViewAddRecyclerView.RecyclerViewAddRecyclerViewFragment">
 
     <LinearLayout
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_radius_frame_blue"
             android:orientation="vertical"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
         <LinearLayout
                 android:id="@+id/content_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_radius_top_blue"
+                android:background="@drawable/bg_bubble_speech_top_blue"
                 android:orientation="horizontal">
 
             <TextView
@@ -46,6 +45,7 @@
                 android:id="@+id/content_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_radius_frame_blue"
                 android:orientation="vertical">
 
             <LinearLayout
@@ -125,6 +125,129 @@
 
     </LinearLayout>
 
+
+<!--    TODO Bill Test-->
+    <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_radius_frame_blue"
+            android:orientation="vertical"
+            tools:visibility="gone"
+            >
+
+        <LinearLayout
+                android:id="@+id/content_title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bubble_speech_top_blue"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/tv_content2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:gravity="center"
+                    android:text="遊戲"
+                    android:textColor="@android:color/white" />
+
+            <TextView
+                    android:id="@+id/txv_zoom_bar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="V"
+                    android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/content_body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/txv_A2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="5碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/txv_B2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="6碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/txv_C2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="7碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/txv_D2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/frame_6dp_white_select_effect_left"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="8碼"
+                        android:textColor="@drawable/textcolor_effect_blue"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    tools:itemCount="5"
+                    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/content_first_layer"
+                    tools:orientation="vertical" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
     <!--    <LinearLayout-->
     <!--            android:layout_width="wrap_content"-->
     <!--            android:layout_height="wrap_content"-->
@@ -155,50 +278,6 @@
             android:layout_marginTop="300dp"
             android:layout_marginStart="50dp">
 
-
-        <com.example.recyclerview_demo.views.BubbleSpeech
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="使用BubbleLinearLayout" />
-
-        </com.example.recyclerview_demo.views.BubbleSpeech>
-
-
-        <!--    LinearLayout + TextView-->
-        <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="top|center"
-                android:background="@drawable/bubble_speech">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="使用.9PNG"
-                    android:layout_gravity="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:id="@+id/nine_txv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="top|center"
-                android:layout_marginTop="50dp">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9PNG使用使用.9PNG使用9PNG使"
-                    android:layout_gravity="center"/>
-        </LinearLayout>
-
         <com.example.recyclerview_demo.views.BubbleSpeech
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -208,7 +287,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9PNG使用使用.9PNG使用9PNG使PNG使用使用.9PNG使用9PNG使PNG使用使用.9PNG使用9PNG使"
+                    android:text="9PNG使用使用"
                     android:layout_gravity="center"/>
 
         </com.example.recyclerview_demo.views.BubbleSpeech>
@@ -223,34 +302,10 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9PNG使用使用.9PNG使用9PNG使PNG使用使用.9PNG使用9PNG使PNG使用使用.9PNG使用9PNG使"
+                    android:text="9PNG使用使用.9PNG使用"
                     android:layout_gravity="center"/>
 
         </com.example.recyclerview_demo.views.BubbleSpeech>
-
-
-        <!--  FrameLayout + ImgView + TextView-->
-        <FrameLayout
-                android:id="@+id/nine_txv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="top|center"
-                android:layout_marginTop="50dp">
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/bg_bubble_chat_left"
-                    android:scaleType="centerCrop"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#7AEB46"
-                    android:text="使用.9PNG使用.9PNG使用.9PNG使用.9PNG"
-                    android:layout_gravity="center"/>
-
-        </FrameLayout>
 
     </LinearLayout>
 

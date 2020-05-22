@@ -8,17 +8,18 @@
         <vector xmlns:android="http://schemas.android.com/apk/res/android"
                 android:width="@dimen/speech_bubble_corners"
                 android:height="@dimen/speech_bubble_corners"
-                android:viewportWidth="10.0"
-                android:viewportHeight="10.0">
+                android:viewportWidth="50.0"
+                android:viewportHeight="50.0">
             <path
-                    android:pathData="M10,10 A10,10 0 0,0 0,0 "
+                    android:pathData="M1,1 A10,10 0 0,0 4,10 M1,1  A10,10 0 0,0 10,7 L4,10"
 
-                    android:strokeColor="@color/speech_bubble_agent"
+                    android:strokeColor="#3A81E5"
                     android:strokeWidth="0.1"
                     />
         </vector>
     </item>
 
+
 </selector>
 
-<!--  教學    https://ithelp.ithome.com.tw/articles/10207614?sc=iThelpR-->
+<!--  教學      https://ithelp.ithome.com.tw/articles/10207614?sc=iThelpR-->

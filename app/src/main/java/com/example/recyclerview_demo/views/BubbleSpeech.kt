@@ -40,12 +40,6 @@ class BubbleSpeech(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
         }
     }
 
-    /**
-     * 使用自訂變數app:的方式
-     * 1.去res>values>attrs建 name要和class名稱一樣
-     * 2.Xml設定變數
-     * 3.來自定義的View去設參數
-     */
     private fun initData(attrs: AttributeSet?) {
         val typedArray = this.context.theme
             .obtainStyledAttributes(attrs, R.styleable.BubbleSpeech, 0, 0)

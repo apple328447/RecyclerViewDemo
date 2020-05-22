@@ -1,12 +1,7 @@
 package com.example.recyclerview_demo.RecyclerViewAddRecyclerView
 
-import android.graphics.Color
-import android.graphics.ColorFilter
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -105,7 +100,7 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
                 content_title.setBackgroundResource(R.drawable.bg_radius_all_blue)
                 content_body.visibility = View.GONE
             } else {
-                content_title.setBackgroundResource(R.drawable.bg_radius_top_blue)
+                content_title.setBackgroundResource(R.drawable.bg_bubble_speech_top_blue)
                 content_body.visibility = View.VISIBLE
             }
         }

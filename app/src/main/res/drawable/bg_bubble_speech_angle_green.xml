@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="45dp"
+        android:height="30dp"
+        android:viewportWidth="180.0"
+        android:viewportHeight="150.0">
+
+    <group
+            android:rotation="4"
+            >
+        <path
+
+                android:pathData="M1,0 C20 70,70 52, 60,55    M1,0 C20 20,90 40, 110,10   L60,55 "
+                android:strokeWidth="0.1"
+                android:strokeColor="#FF81E53A"
+                android:fillColor="#FF81E53A"/>
+    </group>
+    <!--    android:fillColor="#FF81E53A"-->
+    <!--    android:pathData="M1,0 C20 70,70 52, 60,55    M1,0 C10 10,90 40, 110,10   L60,55     這版很接近 "-->
+    <!--    android:pathData="M0,0 C20 70,67 45, 80,40   M0,0 C20 10,50 30, 105,15 L80,40  "-->
+
+
+    <!--    android:rotation="3.2"-->
+    <!--    android:translateX="0"-->
+    <!--    android:scaleX="0.9"-->
+    <!--    android:scaleY="0.9"-->
+    <!--//TODO Bill 明天再微調-->
+</vector>

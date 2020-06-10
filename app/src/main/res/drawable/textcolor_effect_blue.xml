@@ -4,3 +4,4 @@
     <item android:color="#B8C5D9" android:state_checked="true" />
     <item android:color="#3AE5D1" />
 </selector>
+<!--文字被選取會變色-->

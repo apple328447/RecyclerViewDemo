@@ -1,7 +1,12 @@
 package com.example.recyclerview_demo.RecyclerViewAddRecyclerView
 
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.LayerDrawable
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.recyclerview_demo.R
+import com.example.recyclerview_demo.utils.ImageUtil
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_recycler_view_add_recycler_view.*
 
@@ -31,6 +37,30 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
 
         initButton()
         initRecyclerView()
+
+
+        //Test
+        try {
+            var drawable =
+                ContextCompat.getDrawable(activity!!, R.drawable.bg_bubble_speech_all_radius_blue3)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                var color = Color.parseColor("#BB0B1C")
+                var color2 = Color.parseColor("#46BBB5")
+                (drawable as LayerDrawable).getDrawable(0)
+                    .setColorFilter(color, PorterDuff.Mode.SRC_IN)//邊框染色
+                (drawable as LayerDrawable).getDrawable(1)
+                    .setColorFilter(color2, PorterDuff.Mode.SRC_IN)//邊框染色
+                vg_body_content_layout.setBackgroundDrawable(drawable)
+
+                //=================
+                vg_content_layout.background = drawable
+            }
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+
+
+//        vg_body_content_layout.setBackgroundDrawable(activity?.let { ImageUtil.getBubbleSpeech(it) })
 
 
         Log.v("Bill", "onViewCreated")

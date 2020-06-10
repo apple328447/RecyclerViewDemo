@@ -115,6 +115,8 @@
                     android:id="@+id/recyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="160dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     tools:itemCount="5"
                     tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
                     tools:listitem="@layout/content_first_layer"
@@ -306,6 +308,81 @@
                     android:layout_gravity="center"/>
 
         </com.example.recyclerview_demo.views.BubbleSpeech>
+
+        <com.example.recyclerview_demo.views.BubbleImageView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp">
+
+
+        </com.example.recyclerview_demo.views.BubbleImageView>
+        <LinearLayout
+                android:id="@+id/vg_body_content_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="7dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:scrollHorizontally="false"
+                    android:padding="2dp"
+                    android:text="1111111111111" />
+
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal">
+
+            <View
+                    android:id="@+id/vg_content_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_bubble_speech_all_radius_blue"
+                    android:minWidth="20dp"
+                    android:scaleX="-1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="7dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:scrollHorizontally="false"
+                        android:text="1111111111111333311111111111113331111111111111333" />
+
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
 
     </LinearLayout>
 

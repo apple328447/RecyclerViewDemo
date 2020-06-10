@@ -54,5 +54,21 @@ class BubbleSpeech(context: Context?, attrs: AttributeSet?) : LinearLayout(conte
             typedArray.recycle()
         }
     }
+    //TODO BIll
+    //TODO BIll 待整理Code
+//    private fun setBubbleSpeechColor(textView: TextView, vgContentLayout: View, data: ChatMessage) {
+//        try {
+//            textView.setTextColor(ColorUtil.parseColor(data.role?.textColor))//文字顏色
+//            var color = Color.parseColor(data.role?.bgColor?.substring(0, 7))//預設顏色
+//            var drawable = ContextCompat.getDrawable(this.activity, R.drawable.bg_bubble_speech_all_radius_blue)
+////            drawable?.setColorFilter(color, PorterDuff.Mode.SCREEN) // 可支援21以下的渲染方式
+////            drawable?.setColorFilter(color, PorterDuff.Mode.DST_IN)
+//            vgContentLayout.background = drawable
+//            vgContentLayout.backgroundTintList = ColorStateList.valueOf(ColorUtil.parseColor(data.role?.bgColor?.substring(0, 7)))
+////            vgContentLayout.backgroundTintList = ContextCompat.getColorStateList(this.activity,R.color.skin_select_nav_tab_effect_green) // 21以上的渲染方式
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//    }
 
 }

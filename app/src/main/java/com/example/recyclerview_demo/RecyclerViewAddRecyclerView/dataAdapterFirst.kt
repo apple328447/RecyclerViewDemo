@@ -53,6 +53,7 @@ class dataAdapterFirst(private val mContext: Context?) :
                     viewHolder.tvTitle.text = dataList[position].name
                     //數字部分
                     var dataAdapterFirst = dataAdapterSecond(mContext)
+                    //TODO BIll RecyclerView 中再塞一層 RecyclerView
                     viewHolder.rvSecond.adapter = dataAdapterFirst
                     viewHolder.rvSecond.layoutManager =  LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
                     dataAdapterFirst.setData(dataList[position].img)

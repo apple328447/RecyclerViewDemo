@@ -2,6 +2,7 @@ package com.example.recyclerview_demo.RecyclerViewAddRecyclerView
 
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
@@ -14,7 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.recyclerview_demo.R
-import com.example.recyclerview_demo.utils.ImageUtil
+import com.example.recyclerview_demo.utils.BubbleSpeechUtil
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_recycler_view_add_recycler_view.*
 
@@ -37,34 +38,21 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
 
         initButton()
         initRecyclerView()
-
-
-        //Test
-        try {
-            var drawable =
-                ContextCompat.getDrawable(activity!!, R.drawable.bg_bubble_speech_all_radius_blue3)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                var color = Color.parseColor("#BB0B1C")
-                var color2 = Color.parseColor("#46BBB5")
-                (drawable as LayerDrawable).getDrawable(0)
-                    .setColorFilter(color, PorterDuff.Mode.SRC_IN)//邊框染色
-                (drawable as LayerDrawable).getDrawable(1)
-                    .setColorFilter(color2, PorterDuff.Mode.SRC_IN)//邊框染色
-                vg_body_content_layout.setBackgroundDrawable(drawable)
-
-                //=================
-                vg_content_layout.background = drawable
-            }
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-        }
-
-
-//        vg_body_content_layout.setBackgroundDrawable(activity?.let { ImageUtil.getBubbleSpeech(it) })
-
+        initView()
 
         Log.v("Bill", "onViewCreated")
 
+    }
+
+    private fun initView() {
+        BubbleSpeechUtil.getBubbleSpeech(vg_content_layout.context, "#7CDED7", "#DDDE73", object :
+            BubbleSpeechUtil.OnSetColorListener {
+            override fun onReceive(bubbleSpeech: Drawable) {
+                vg_content_layout.background =bubbleSpeech
+            }
+
+            override fun onError() {}
+        })
     }
 
     private fun getTypeData(type: Int): MutableList<DataOutput.contentData> {
@@ -130,7 +118,7 @@ class RecyclerViewAddRecyclerViewFragment : Fragment() {
                 content_title.setBackgroundResource(R.drawable.bg_radius_all_blue)
                 content_body.visibility = View.GONE
             } else {
-                content_title.setBackgroundResource(R.drawable.bg_bubble_speech_top_blue)
+                content_title.setBackgroundResource(R.drawable.bg_bubble_speech_top_radius_blue)
                 content_body.visibility = View.VISIBLE
             }
         }

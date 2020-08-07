@@ -14,8 +14,7 @@
         <android.support.constraint.ConstraintLayout
                 android:id="@+id/deposit_detail_CsnLyt"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-        >
+                android:layout_height="50dp">
 
             <TextView
                     android:id="@+id/deposit_text_time"

@@ -122,7 +122,7 @@ class dataAdapter(private val mContext: Context?) : RecyclerView.Adapter<Recycle
      * */
     fun setData(mdataList: MutableList<DataOutput.DepositDetail>) {
         //這個是一次更換全部資料
-        mdata = mdataList
+        mdata = mdataList //TODO BIll 如果mdataList給的是全域變數，當他在別的地方被修改時，Adapter直接notifyDataSetChanged()就好了！ 有點類似"綁定"的概念
         notifyDataSetChanged()//更新資料
     }
 
